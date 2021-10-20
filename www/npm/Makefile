@@ -20,7 +20,7 @@ NO_ARCH=	yes
 NO_BUILD=	yes
 REINPLACE_ARGS=	-i ''
 
-CONFLICTS_INSTALL?=	npm-node14
+CONFLICTS_INSTALL?=	npm-node14 npm-node10
 
 OPTIONS_SINGLE=	BACKEND
 OPTIONS_SINGLE_BACKEND=	NODE NODE10 NODE14
@@ -35,7 +35,7 @@ SHEBANG_GLOB=	*.py
 SHEBANG_FILES=	lib/node_modules/npm/node_modules/node-gyp/gyp/samples/samples
 
 NODE_RUN_DEPENDS=	node>=0.8.0:www/node
-NODE10_RUN_DEPENDS=	node14>=0.8.0:www/node10
+NODE10_RUN_DEPENDS=	node10>=0.8.0:www/node10
 NODE14_RUN_DEPENDS=	node14>=0.8.0:www/node14
 
 .include <bsd.port.pre.mk>
