@@ -1,6 +1,7 @@
 PORTNAME=	opensearch-dashboards
 DISTVERSION=	1.1.0
 DISTVERSIONSUFFIX=	-linux-x64
+PORTVERSION=	1
 CATEGORIES=	textproc www
 MASTER_SITES=	https://artifacts.opensearch.org/releases/bundle/${PORTNAME}/${DISTVERSION}/
 
@@ -10,9 +11,9 @@ COMMENT=	Visualization dashboards for OpenSearch
 LICENSE=	APACHE20
 LICENSE_FILE=	${WRKSRC}/LICENSE.txt
 
-BUILD_DEPENDS=	node14>=14.17.0:www/node14 \
-		npm-node14>0:www/npm-node14
-RUN_DEPENDS=	node14>=14.17.0:www/node14
+BUILD_DEPENDS=	node10>=10.0.0:www/node10 \
+		npm-node10>0:www/npm-node10
+RUN_DEPENDS=	node10>=10.0.0:www/node10
 
 USES=		python:build
 USE_RC_SUBR=	${PORTNAME}
