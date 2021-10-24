@@ -31,6 +31,7 @@ load_rc_config ${name}
 : ${opensearch_config=%%PREFIX%%/etc/opensearch}
 : ${opensearch_login_class=root}
 : ${opensearch_java_home="%%JAVA_HOME%%"}
+: ${opensearch_sleep:=5}
 
 required_files="${opensearch_config}/opensearch.yml"
 _pidprefix=/var/run/opensearch/opensearch
@@ -40,6 +41,7 @@ procname=${opensearch_java_home}/bin/java
 extra_commands="console status"
 console_cmd=opensearch_console
 start_precmd=opensearch_precmd
+start_postcmd=opensearch_start_postcmd
 command=%%PREFIX%%/lib/opensearch/bin/opensearch
 command_args="-d --pidfile=${pidfile}"
 
@@ -51,6 +53,11 @@ opensearch_precmd()
     /usr/bin/install -d -o ${opensearch_user} -g ${opensearch_group} -m 755 ${pidfile%/*}
     /usr/bin/install -d -o ${opensearch_user} -g ${opensearch_group} -m 755 /var/db/opensearch
     /usr/bin/install -d -o ${opensearch_user} -g ${opensearch_group} -m 755 /var/log/opensearch
+}
+
+opensearch_precmd()
+{
+    /bin/sleep ${opensearch_sleep}
 }
 
 opensearch_console()
