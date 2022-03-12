@@ -1,9 +1,8 @@
 # Created by: Sven R <freebsd@hackacad.net>
 
 PORTNAME=	opensearch
-DISTVERSION=	1.1.0
+DISTVERSION=	1.2.4
 DISTVERSIONSUFFIX=	-linux-x64
-PORTREVISION=	1
 CATEGORIES=	textproc java devel
 MASTER_SITES=	https://artifacts.opensearch.org/releases/bundle/${PORTNAME}/${PORTVERSION}/
 
